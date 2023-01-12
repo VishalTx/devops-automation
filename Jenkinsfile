@@ -53,6 +53,7 @@ pipeline {
             steps{
                 
                 sh "pwd"
+                sh 'chmod u+x ./kubectl' 
                 sh "kubectl apply -f ."
             }
         }
