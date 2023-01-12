@@ -21,7 +21,7 @@ pipeline {
             steps{
                 script{
                    withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
-                   sh 'docker login -u vishal7500 -p ${dockerhub}'
+                   sh 'docker login -u vishal7500 -p Testing@123
 
 }
                    sh 'docker push vishal7500/devops-integration'
