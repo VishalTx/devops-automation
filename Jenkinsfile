@@ -35,7 +35,7 @@ pipeline {
         stage('Deploy to k8s'){
             steps{
                 sshagent(['k8config']) {
-                    sh "scp -o StrictHostKeyChecking=no deploymentservice.yaml ubuntu@34.227.109.72:/home/ubuntu"
+                    sh "scp -o StrictHostKeyChecking=no deploymentservice.yaml ubuntu@34.227.109.72"
                     script{
                         try{
                             sh "ssh ubuntu@34.227.109.72 kubectl apply -f ."}
