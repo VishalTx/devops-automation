@@ -17,16 +17,21 @@ pipeline {
                 }
             }
         }
-        stage('Push image to Hub'){
-            steps{
-                script{
-                   withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
-                       sh 'docker login -u vishal7500 -p ${dockerhub}'
-                       sh 'docker push vishal7500/devops-integration'
+         stage('Publish image to Docker Hub') { 
+            steps {
+                withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
+                 sh 'docker push vishal7500/devops-integration'
+//         stage('Push image to Hub'){
+//             steps{
+//                 script{
+//                    withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
+//                        sh 'docker login -u vishal7500 -p ${dockerhub}'
+//                        sh 'docker push vishal7500/devops-integration'
+                       
                 }
             }
         }
-        }
+        
         stage('Deploy to k8s'){
             steps{
                 script{
