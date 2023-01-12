@@ -51,7 +51,7 @@ pipeline {
 //     // some block
         stage('kuch bhi'){
             steps{
-                sh "mkdir naam"
+                
                 sh "pwd"
             }
         }
