@@ -32,23 +32,29 @@ pipeline {
             }
         }
         
-        stage('Deploy to k8s'){
+//         stage('Deploy to k8s'){
+//             steps{
+//                 sshagent(['k8config']) {
+//                     sh "scp -o StrictHostKeyChecking=no deploymentservice.yaml ubuntu@34.227.109.72:/home/ubuntu"
+//                     sh "ls "
+//                     script{
+//                         try{
+//                             sh "ssh ubuntu@34.227.109.72 kubectl apply -f ."}
+//                         catch(error){
+//                             sh "ssh ubuntu@34.227.109.72 kubectl create -f ."
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+                            
+//     // some block
+        stage('kuch bhi'){
             steps{
-                sshagent(['k8config']) {
-                    sh "scp -o StrictHostKeyChecking=no deploymentservice.yaml ubuntu@34.227.109.72:/home/ubuntu"
-                    sh "ls "
-                    script{
-                        try{
-                            sh "ssh ubuntu@34.227.109.72 kubectl apply -f ."}
-                        catch(error){
-                            sh "ssh ubuntu@34.227.109.72 kubectl create -f ."
-                        }
-                    }
-                }
+                sh "mkdir naam"
             }
         }
-                            
-    // some block
+        
 }
                 
  }
