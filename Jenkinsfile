@@ -51,14 +51,12 @@ pipeline {
 //     // some block
         stage('kuch bhi'){
             steps{
-                 withKubeConfig([credentialsId: 'kubernetes_updated']) {
-               //  sh 'curl -LO "https://storage.googleapis.com/kubernetes-release/release/v1.20.5/bin/linux/amd64/kubectl"'  
-                // sh 'chmod u+x ./kubectl'  
-                 sh ' kubectl apply -f .'
-             }
-//                 sh "pwd"
-//                 sh 'chmod u+x ./kubectl' 
-//                 sh "kubectl apply -f ."
+                kubeconfig(credentialsId: 'K8SL', serverUrl: '') {
+                    sh "kubectl apply -f deploymentservice.yaml"
+                 // some block
+}
+               
+
             }
         }
         
