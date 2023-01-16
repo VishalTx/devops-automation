@@ -70,7 +70,7 @@ pipeline {
            //Update the imagetag to the latest version
 //                    sh("sed -i.bak 's#gcr.io/${project}/${appName}:${imageVersion}#${imageTag}#' ./k8s/development/*.yaml")
                    //Create or update resources
-           sh("kubectl --namespace=${namespace} apply -f deploymentservice.yaml")
+           sh("kubectl  apply -f deploymentservice.yaml")
                    
         }
         }
