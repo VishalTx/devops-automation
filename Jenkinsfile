@@ -49,17 +49,29 @@ pipeline {
 //         }
                             
 //     // some block
-        stage('deploy to k8s'){
-            steps{
-                withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'K8SL', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
-    // some block
-                    sh "kubectl apply -f deploymentservice.yaml"
-}
+//         stage('deploy to k8s'){
+//             steps{
+//                 withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'K8SL', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
+//     // some block
+//                     sh "kubectl apply -f deploymentservice.yaml"
+// }
                 
-}               
+// }               
                
 
-            }
+//             }
+        stage('Deploy Application') {
+//        switch (namespace) {
+              //Roll out to Dev Environment
+              case "development":
+                   // Create namespace if it doesn't exist
+//                    sh("kubectl get ns ${namespace} || kubectl create ns ${namespace}")
+           //Update the imagetag to the latest version
+//                    sh("sed -i.bak 's#gcr.io/${project}/${appName}:${imageVersion}#${imageTag}#' ./k8s/development/*.yaml")
+                   //Create or update resources
+           sh("kubectl --namespace=${namespace} apply -f deploymentservice.yaml")
+                   
+        }
         }
         
 }
