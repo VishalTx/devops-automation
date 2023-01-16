@@ -63,7 +63,7 @@ pipeline {
         stage('Deploy Application') {
 //        switch (namespace) {
               //Roll out to Dev Environment
-              case "development":
+//               case "development":
                    // Create namespace if it doesn't exist
 //                    sh("kubectl get ns ${namespace} || kubectl create ns ${namespace}")
            //Update the imagetag to the latest version
