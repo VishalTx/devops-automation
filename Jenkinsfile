@@ -61,6 +61,7 @@ pipeline {
 
 //             }
         stage('Deploy Application') {
+            steps{
 //        switch (namespace) {
               //Roll out to Dev Environment
 //               case "development":
@@ -71,6 +72,7 @@ pipeline {
                    //Create or update resources
            sh("kubectl --namespace=${namespace} apply -f deploymentservice.yaml")
                    
+        }
         }
         }
         
